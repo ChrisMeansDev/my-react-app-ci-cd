@@ -5,11 +5,17 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
+      - cd react-app
       - npm install
   build:
     commands:
-      - CI=false npm test -- --coverage
+      - npm test -- --coverage
+  post_build:
+    commands:
+      - echo "Build completed"
+
 artifacts:
-  base-directory: build
+  base-directory: react-app/build
   files:
     - '**/*'
+
