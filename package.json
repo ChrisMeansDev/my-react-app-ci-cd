@@ -1,0 +1,19 @@
+{
+  "name": "ci-cd-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http-server.js",
+  "scripts": {
+    "start": "node http-server.js",
+    "test": "jest --detectOpenHandles"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.2.2"
+  }
+}
