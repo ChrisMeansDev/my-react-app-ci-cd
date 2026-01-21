@@ -1,18 +1,14 @@
 const request = require('supertest');
-const app = require('./http-server');
-
-let server;
-
-beforeAll(() => {
-  server = app.listen(3000); // start server for test
-});
+const server = require('./http-server'); // import the server
 
 afterAll(() => {
-  server.close(); // stop server after test
+  server.close(); // stops the server
 });
 
-test('GET / returns Hello World', async () => {
-  const response = await request(app).get('/');
-  expect(response.status).toBe(200);
-  expect(response.text).toBe('Hello World');
+describe('GET /', () => {
+  it('returns Hello World', async () => {
+    const res = await request(server).get('/');
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe('Hello World');
+  });
 });
